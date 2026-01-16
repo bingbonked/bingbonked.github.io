@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chua Bing Rui's Portfolio</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="window welcome-window" id="welcome-window" style="width: 400px; margin: 40px;">
+        <div class="title-bar">
+            <div class="title-bar-text">Welcome to my portfolio website</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <div class="welcome-banner">
+                <div class="microsoft-logo">Logo placeholder
+                    <span class="win98-text">Windows98</span>
+                </div>
+            </div>
+            <div class="welcome-content-grid">
+                <div class="sidebar">
+                    <div class="contents-header">
+                        <ul class="nav-list">
+                            <li class="nav-item active">
+                                <span class="color-bar blue"></span>
+                                <span>Register Now</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="color-bar red"></span>
+                                <span>Connect to the Internet</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="color-bar green"></span>
+                                <span>Discover Windows 98</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="color-bar yellow"></span>
+                                <span>Maintain Your Computer</span>
+                            </li>
+                        </ul>    
+                    </div>
+                </div>
+                <div class="main-text">
+                    <h3>Welcome</h3>
+                    <p>Welcome to my portfolio website inspired by Windows 98</p>
+                    <p>Sit back and relax as you take a brief tour of the options available.</p>
+                    <p>If you want to explore an option, just click it.</p>
+                </div>
+            </div>
+            <div class="welcome-footer">
+                    <div class="field-row">
+                        <input type="checkbox" id="show-screen" checked>
+                        <label for="show-screen">Show this screen each time Windows 98 starts.</label>
+                    </div>
+                    <button id="begin-button">Begin</button>
+            </div>
+        </div>
+    </div>
+    <div class="desktop">
+        <div class="shortcut">
+            <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-5.png" class="icon-img" alt="pc-icon">
+            <div class="icon-text">My Computer</div>
+        </div>
+        <div class="shortcut interactive" id="my-documents">
+            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" class="icon-img" alt="document-icon">
+            <div class="icon-text">My Documents</div>
+        </div>
+        <div class="shortcut">
+            <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" class="icon-img" alt="trash-icon">
+            <div class="icon-text">Recycle Bin</div>
+        </div>
+    </div>
+    <div class="document-window" id="docs-window" style="display: none">
+        <div class="title-bar">I wrestle with my chicken</div>
+    </div>
+    <div class="taskbar">
+        <button class="start-button">
+           <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" alt="logo">
+            <b>Start</b> 
+        </button>   
+        <div class="taskbar-divider"></div>
+        <div class="system-tray">
+            <img src="https://win98icons.alexmeub.com/icons/png/clock-1.png" alt="sound" class="tray-icon">
+            <div class="time" id="clock"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

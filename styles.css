@@ -1,0 +1,258 @@
+@import url('https://fonts.cdnfonts.com/css/public-pixel');
+
+            
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: #008080;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pixelated MS Sans Serif", Arial;
+}
+
+.welcome-window {
+  width: 600px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.window-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.welcome-banner {
+  background: linear-gradient(90deg, transparent 0%, #aabfc6 100%);
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.microsoft-logo {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #000;
+  margin-left: 50px; 
+}
+
+.win98-text {
+  font-weight: 900;
+}
+
+.welcome-content-grid {
+  display: flex;
+  flex-grow: 1;
+  gap: 15px;
+}
+
+.sidebar {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contents-header {
+  background: black;
+  color: white;
+  font-weight: bold;
+  padding: 2px 5px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.nav-item:hover {
+  background-color: #efefef;
+  border: 1px dotted #000;
+}
+
+.nav-item.active {
+  background-color: #e0e0e0;
+  font-weight: bold;
+  box-shadow: inset 1px 1px #000;
+}
+
+.color-bar {
+  width: 6px;
+  height: 25px;
+  margin-right: 10px;
+  border: 1px solid rgba(0,0,0,0.5);
+  box-shadow: inset 1px 1px rgba(255,255,255,0.7);
+}
+
+.color-bar.blue { background: #0000ff; }
+.color-bar.red { background: #ff0000; }
+.color-bar.green { background: #008000; }
+.color-bar.yellow { background: #ffff00; }
+
+.main-text {
+  flex-grow: 1;
+  padding-right: 20px;
+}
+
+.main-text h3 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.main-text p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.welcome-footer {
+  margin-top: auto;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-footer button {
+  min-width: 80px;
+}
+
+/* Taskbar styling */
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px; 
+  background: #c0c0c0;
+  border-top: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  box-shadow: inset 0 1px 0 #fff;
+  z-index: 1000; 
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  height: 22px;
+  margin-right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.start-button img {
+    height: 15px;
+    width: auto;
+}
+
+.taskbar-divider {
+    width: 2px;
+    height: 20px;
+    background: #c0c0c0;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #fff;
+    margin: 0 5px;
+}
+
+.tasks {
+    flex-grow: 1;
+    display: flex;
+    gap: 2px;
+    padding-right: 5px;
+}
+
+.task-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 22px;
+    width: 160px; 
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold; 
+}
+
+
+.task-button img {
+  height: 16px;
+}
+
+.system-tray {
+    border-left: 1px solid #808080;
+    border-top: 1px solid #808080;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    background: #c0c0c0;
+    height: 22px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.tray-icon {
+    height: 14px;
+}
+
+.time {
+    font-family: 'Public Pixel', sans-serif;
+    font-size: 10px;
+}
+
+/*desktop icons styling*/
+.icon-text {
+    font-family: 'Public Pixel', sans-serif;
+    font-size: 10px;
+    color:white;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.desktop {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 1;
+}
+
+.icon-img {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.shortcut {
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.shortcut.interactive {
+    cursor: pointer;
+}
