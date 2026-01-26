@@ -1,52 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
-  
-  //Logic to close welcome-window/window
+
   const welcomeWindow = document.getElementById('welcome-window');
-  const beginButton = document.getElementById('begin-button'); 
-  const closeButton = document.querySelector('.title-bar-controls button[aria-label="Close"]');
-  const myDocsIcon = document.getElementById('my-documents');
-  const docsWindow = document.getElementById('docs-window')
+  const docsWindow = document.getElementById('docs-window');
+  const projWindow = document.getElementById('proj-window');
 
+  const beginButton = document.getElementById('begin-button');
+  const closeWelcome = document.getElementById('close-welcome');
+  const closeAbout = document.getElementById('close-about');
+  const closeProjects = document.getElementById('close-projects');
 
-  function closeWindow() {
-    if (welcomeWindow) {
-      welcomeWindow.style.display = 'none';
-    }
-  }
+  const aboutIcon = document.getElementById('my-documents');
+  const projectsIcon = document.getElementById('my-projects');
 
-  if (beginButton) {
-    beginButton.addEventListener('click', closeWindow);
-  }
+  beginButton?.addEventListener('click', () => {
+    welcomeWindow.style.display = 'none';
+  });
 
-  if (closeButton) {
-    closeButton.addEventListener('click', closeWindow);
-  }
+  closeWelcome?.addEventListener('click', () => {
+    welcomeWindow.style.display = 'none';
+  });
 
-  //Task bar clock logic
+  closeAbout?.addEventListener('click', () => {
+    docsWindow.style.display = 'none';
+  });
+
+  closeProjects?.addEventListener('click', () => {
+    projWindow.style.display = 'none';
+  });
+
+  aboutIcon?.addEventListener('click', () => {
+    docsWindow.style.display = 'block';
+  });
+
+  projectsIcon?.addEventListener('click', () => {
+    projWindow.style.display = 'block';
+  });
+
+  /*taskbar clock logic*/
+
   function updateClock() {
     const now = new Date();
     let hours = now.getHours();
     const minutes = now.getMinutes();
     const ampm = hours >= 12 ? 'PM' : 'AM';
-    
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    
+
+    hours = hours % 12 || 12;
     const minutesStr = minutes < 10 ? '0' + minutes : minutes;
-    const timeString = hours + ':' + minutesStr + ' ' + ampm;
-    
-    const clockElement = document.getElementById('clock');
-    if (clockElement) {
-      clockElement.textContent = timeString;
+
+    const clock = document.getElementById('clock');
+    if (clock) {
+      clock.textContent = `${hours}:${minutesStr} ${ampm}`;
     }
   }
+
   updateClock();
   setInterval(updateClock, 5000);
-
-  if (myDocsIcon && docsWindow) {
-    myDocsIcon.addEventListener('dblclick', () => {
-        docsWindow.style.display = 'block';
-    })
-  }
 
 });

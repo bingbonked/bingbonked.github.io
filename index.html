@@ -10,25 +10,20 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <div class="window welcome-window" id="welcome-window" style="width: 400px; margin: 40px;">
+    <div class="window welcome-window" id="welcome-window">
         <div class="title-bar">
             <div class="title-bar-text">Welcome to my portfolio website</div>
             <div class="title-bar-controls">
-                <button aria-label="Close"></button>
+                <button aria-label="Close" id="close-welcome"></button>
             </div>
         </div>
 
         <div class="window-body">
-            <div class="welcome-banner">
-                <div class="microsoft-logo">Logo placeholder
-                    <span class="win98-text">Windows98</span>
-                </div>
-            </div>
             <div class="welcome-content-grid">
                 <div class="sidebar">
                     <div class="contents-header">
                         <ul class="nav-list">
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <span class="color-bar blue"></span>
                                 <span>Register Now</span>
                             </li>
@@ -70,15 +65,92 @@
         </div>
         <div class="shortcut interactive" id="my-documents">
             <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" class="icon-img" alt="document-icon">
-            <div class="icon-text">My Documents</div>
+            <div class="icon-text">About Me</div>
         </div>
         <div class="shortcut">
             <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" class="icon-img" alt="trash-icon">
             <div class="icon-text">Recycle Bin</div>
         </div>
+        <div class="shortcut interactive" id="my-projects">
+            <img src="https://win98icons.alexmeub.com/icons/png/write_wordpad-1.png" class="icon-img" alt="projects-icon">
+            <div class="icon-text">My Projects</div>
+        </div>
     </div>
-    <div class="document-window" id="docs-window" style="display: none">
-        <div class="title-bar">I wrestle with my chicken</div>
+    <div class="window project-window" id="proj-window" style="display: none">
+        <div class="title-bar">
+            <div class="title-bar-text">My Projects</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" id="close-projects"></button>
+            </div>
+        </div>
+        <div class="window-body my-projects-content">
+            <div class="projects-layout">
+                <div class="projects-list">
+                    <ul>
+                        <li class="project-item active" data-project="0">Portfolio 1</li>
+                        <li class="project-item" data-project="1">Portfolio 2</li>
+                    </ul>
+                </div>
+
+                <div class="project-viewer">
+                    <div class="carousel">
+                        <button class="carousel-btn" id="prev-btn">◀</button>
+
+                        <img
+                            id="carousel-image"
+                            src="project1-1.jpg"
+                            alt="Project preview"
+                        >
+
+                        <button class="carousel-btn" id="next-btn">▶</button>
+                    </div>
+
+                    <div class="project-description" id="project-description">
+                        <p><b>Portfolio 1</b></p>
+                        <p>
+                            Lorem ipsum dolor sit amet.
+                        </p>
+
+                        <p>
+                            <a href="#" target="_blank">View Project</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="window document-window" id="docs-window" style="display: none">
+        <div class="title-bar">
+            <div class="title-bar-text">About Me</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" id="close-about"></button>
+            </div>
+        </div>
+        <div class="window-body about-me-content">
+            <div class="about-me-layout">
+                <div class="about-me-image">
+                    <img src="placeholder.jpg" alt="Profile picture">
+                </div>
+
+                <div class="about-me-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+
+                    <p>
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                    </p>
+
+                    <p>
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="taskbar">
         <button class="start-button">
