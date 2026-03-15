@@ -1,59 +1,83 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const projects = [
+        {
+            title: "Movie Recommendation System",
+            images: ["images/movie_reco_home.png", "images/movie_reco_1.png", "images/movie_reco_2.png"],
+            tech: "Python, Pandas, NLTK, Scikit-Learn",
+            link: "https://movie-recommendation-system-8d40.onrender.com",
+            desc: "This project implements a content based movie recommendation system that utilizes NLP to suggest films based on plot descriptions, director, cast and genre."
+        },
+        {
+            title: "Flight Delay Exploration",
+            images: ["images/flight_delay_1.png", "images/flight_delay_2.png", "images/flight_delay_3.png"],
+            tech: "Python, Pandas, Matplotlib, Seaborn, Scikit-learn",
+            link: "https://nbviewer.org/github/bingbonked/PDS_assignment/blob/main/PDS_assignment.ipynb",
+            desc: "Exploration and prediction of flight delays using Data Science."
+        }
+    ];
 
-  const welcomeWindow = document.getElementById('welcome-window');
-  const docsWindow = document.getElementById('docs-window');
-  const projWindow = document.getElementById('proj-window');
+    let currentProjectIdx = 0;
+    let currentImageIdx = 0;
 
-  const beginButton = document.getElementById('begin-button');
-  const closeWelcome = document.getElementById('close-welcome');
-  const closeAbout = document.getElementById('close-about');
-  const closeProjects = document.getElementById('close-projects');
+    //window logic
+    const projWindow = document.getElementById('proj-window');
+    const docsWindow = document.getElementById('docs-window');
+    const welcomeWindow = document.getElementById('welcome-window');
 
-  const aboutIcon = document.getElementById('my-documents');
-  const projectsIcon = document.getElementById('my-projects');
+    document.getElementById('my-projects').onclick = () => { projWindow.style.display = 'block'; updateProject(0); };
+    document.getElementById('my-documents').onclick = () => docsWindow.style.display = 'block';
+    document.getElementById('close-projects').onclick = () => projWindow.style.display = 'none';
+    document.getElementById('close-about').onclick = () => docsWindow.style.display = 'none';
+    document.getElementById('close-welcome').onclick = () => welcomeWindow.style.display = 'none';
+    document.getElementById('begin-button').onclick = () => welcomeWindow.style.display = 'none';
 
-  beginButton?.addEventListener('click', () => {
-    welcomeWindow.style.display = 'none';
-  });
+    // project switching logic
+    function updateProject(index) {
+        currentProjectIdx = index;
+        currentImageIdx = 0;
+        const p = projects[index];
 
-  closeWelcome?.addEventListener('click', () => {
-    welcomeWindow.style.display = 'none';
-  });
+        document.querySelectorAll('.project-item').forEach((item, idx) => {
+            item.classList.toggle('active', idx === index);
+        });
 
-  closeAbout?.addEventListener('click', () => {
-    docsWindow.style.display = 'none';
-  });
+        document.getElementById('project-info').innerHTML = `
+            <p><b>${p.title}</b></p>
+            <p>${p.desc}</p>
+            <p>Tech stack: ${p.tech}</p>
+            <p><a href="${p.link}" target="_blank">View Project</a></p>
+        `;
 
-  closeProjects?.addEventListener('click', () => {
-    projWindow.style.display = 'none';
-  });
-
-  aboutIcon?.addEventListener('click', () => {
-    docsWindow.style.display = 'block';
-  });
-
-  projectsIcon?.addEventListener('click', () => {
-    projWindow.style.display = 'block';
-  });
-
-  /*taskbar clock logic*/
-
-  function updateClock() {
-    const now = new Date();
-    let hours = now.getHours();
-    const minutes = now.getMinutes();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-
-    hours = hours % 12 || 12;
-    const minutesStr = minutes < 10 ? '0' + minutes : minutes;
-
-    const clock = document.getElementById('clock');
-    if (clock) {
-      clock.textContent = `${hours}:${minutesStr} ${ampm}`;
+        const viewport = document.getElementById('viewport');
+        viewport.innerHTML = p.images.map((src, i) => 
+            `<img class="carousel-img ${i === 0 ? 'active' : ''}" src="${src}">`
+        ).join('');
     }
-  }
 
-  updateClock();
-  setInterval(updateClock, 5000);
+    // Attach click events to list items
+    document.querySelectorAll('.project-item').forEach((item, idx) => {
+        item.onclick = () => updateProject(idx);
+    });
 
+    // 4. CAROUSEL LOGIC
+    function changeImage(step) {
+        const imgs = document.querySelectorAll('.carousel-img');
+        if (imgs.length === 0) return;
+        
+        imgs[currentImageIdx].classList.remove('active');
+        currentImageIdx = (currentImageIdx + step + imgs.length) % imgs.length;
+        imgs[currentImageIdx].classList.add('active');
+    }
+
+    document.querySelector('.prev-btn').onclick = () => changeImage(-1);
+    document.querySelector('.next-btn').onclick = () => changeImage(1);
+
+    // 5. CLOCK
+    function updateClock() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        document.getElementById('clock').textContent = timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 });

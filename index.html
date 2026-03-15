@@ -76,6 +76,7 @@
             <div class="icon-text">My Projects</div>
         </div>
     </div>
+    
     <div class="window project-window" id="proj-window" style="display: none">
         <div class="title-bar">
             <div class="title-bar-text">My Projects</div>
@@ -85,35 +86,24 @@
         </div>
         <div class="window-body my-projects-content">
             <div class="projects-layout">
+                <!-- sidebar list -->
                 <div class="projects-list">
                     <ul>
-                        <li class="project-item active" data-project="0">Portfolio 1</li>
-                        <li class="project-item" data-project="1">Portfolio 2</li>
+                        <li class="project-item active" data-project="0">Movie Recommendation</li>
+                        <li class="project-item" data-project="1">Flight Delay Prediction</li>
                     </ul>
                 </div>
 
+                <!-- single viewer -->
                 <div class="project-viewer">
                     <div class="carousel">
-                        <button class="carousel-btn" id="prev-btn">◀</button>
-
-                        <img
-                            id="carousel-image"
-                            src="project1-1.jpg"
-                            alt="Project preview"
-                        >
-
-                        <button class="carousel-btn" id="next-btn">▶</button>
+                        <button class="carousel-btn prev-btn">◀</button>
+                        <div class="image-viewport" id="viewport">
+                        </div>
+                        <button class="carousel-btn next-btn">▶</button>
                     </div>
 
-                    <div class="project-description" id="project-description">
-                        <p><b>Portfolio 1</b></p>
-                        <p>
-                            Lorem ipsum dolor sit amet.
-                        </p>
-
-                        <p>
-                            <a href="#" target="_blank">View Project</a>
-                        </p>
+                    <div class="project-description" id="project-info">
                     </div>
                 </div>
             </div>

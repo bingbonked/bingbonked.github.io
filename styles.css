@@ -338,25 +338,43 @@ body {
     gap: 8px;
 }
 
-/* Carousel */
+/* carous */
 .carousel {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    width: 100%;
 }
 
-.carousel img {
-    width: 75%;
-    object-fit: cover;
-    border: 2px solid #808080;
-    background: #000;
+.image-viewport {
+    flex-grow: 1; 
+    height: 250px; 
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.carousel-img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0; 
+    transition: opacity 0.1s; 
+}
+
+.carousel-img.active {
+    opacity: 1;
+    z-index: 2;
 }
 
 .carousel-btn {
-    width: 28px;
-    height: 28px;
-    font-weight: bold;
+    min-width: 25px;
+    height: 30px;
+    cursor: pointer;
 }
 
 /* Description */
