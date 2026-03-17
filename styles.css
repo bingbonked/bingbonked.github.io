@@ -36,6 +36,8 @@ body {
   background-image: linear-gradient(135deg, #dfefff 0%, #c6dbf0 35%, #fff 70%);
   padding: 10px;
   padding-top: 30px;
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
 .welcome-banner {
@@ -408,4 +410,55 @@ div#proj-window.window.project-window .project-item {
 /* Description */
 .project-description {
     font-size: 18px;
+}
+
+
+/* @mobile responsive */
+@media(max-width: 800px){
+  .window{
+    max-width: 100vw;
+    width: 90%;
+  }
+  .window document-window{
+    padding: 0 40px;
+  }
+  .welcome-content-grid{
+    flex-direction: column;
+  }
+  .about-me-layout{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .about-me-image img{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  .about-me-text{
+    flex: 1;
+    min-width: 0;
+    word-wrap: break-word;
+  }
+  .projects-layout{
+    flex-direction: column;
+  }
+  .projects-list{
+    width: 100%;
+    height:auto;
+    max-height: 100px;
+  }
+  .project-viewer{
+    width:100%;
+    padding: 4px;
+  }
+  .image-viewport{
+    height: 180px;
+    margin:  0 10px;
+  }
+  .carousel-btn{
+    height: 40px;
+    min-width: 20px;
+  }
 }
