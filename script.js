@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const docsWindow = document.getElementById('docs-window');
     const welcomeWindow = document.getElementById('welcome-window');
 
-    document.getElementById('my-projects').onclick = () => { projWindow.style.display = 'block'; updateProject(0); };
+    document.getElementById('my-projects').onclick = () => { projWindow.style.display = 'flex'; updateProject(0); };
     document.getElementById('my-documents').onclick = () => docsWindow.style.display = 'block';
     document.getElementById('close-projects').onclick = () => projWindow.style.display = 'none';
     document.getElementById('close-about').onclick = () => docsWindow.style.display = 'none';
