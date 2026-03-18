@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
             images: ["images/movie_reco_home.png", "images/movie_reco_1.png", "images/movie_reco_2.png"],
             tech: "Python, Pandas, NLTK, Scikit-Learn",
             link: "https://movie-recommendation-system-8d40.onrender.com",
-            desc: "This project implements a content based movie recommendation system that utilizes NLP to suggest films based on plot descriptions, director, cast and genre."
+            desc: "This project implements a content based movie recommendation system that leverages NLP and TFIDF to suggest films based on plot descriptions, director, cast and genre. The pipeline includes data cleaning, feature engineering and consine similarity to identify and recommend similar titles. You can view the project using the link below (give it some time to start the service)"
         },
         {
             title: "Flight Delay Exploration",
             images: ["images/flight_delay_1.png", "images/flight_delay_2.png", "images/flight_delay_3.png"],
             tech: "Python, Pandas, Matplotlib, Seaborn, Scikit-learn",
             link: "https://nbviewer.org/github/bingbonked/PDS_assignment/blob/main/PDS_assignment.ipynb",
-            desc: "Exploration and prediction of flight delays using Data Science."
+            desc: "An end-to-end data science project focusing on the exploration and prediction of US domestic flight delays. Utilizing flight delay datasets from the US Department of Transportation, this study identifies critical delay triggers such as airport congestion, route and aircraft turnaround. The pipeline integrates data cleaning, feature engineering and machine learning models to forecast flight disruptions."
         }
     ];
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.onclick = () => updateProject(idx);
     });
 
-    // 4. CAROUSEL LOGIC
+    // carousel
     function changeImage(step) {
         const imgs = document.querySelectorAll('.carousel-img');
         if (imgs.length === 0) return;
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.prev-btn').onclick = () => changeImage(-1);
     document.querySelector('.next-btn').onclick = () => changeImage(1);
 
-    // 5. CLOCK
+    // clock
     function updateClock() {
         const now = new Date();
         const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
